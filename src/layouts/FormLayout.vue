@@ -2,26 +2,40 @@
   <mu-container fluid class="form-container">
     <mu-row>
       <mu-col span="2">
-        <LeftMenu :step="step" />
+        <LeftMenu class="nav" :step="step" />
       </mu-col>
-      <mu-col span="8">
-        <h1>{{ title }}</h1>
-        <slot />
-        <mu-button color="primary" @click="handleButtonClick">DALEJ</mu-button>
-      </mu-col>
-      <mu-col span="2">
-        <div class="progress-container">
-          <mu-circular-progress
-            v-if="percentage > 0"
-            mode="determinate"
-            :value="percentage"
-            color="secondary"
-            :stroke-width="5"
-            :size="72"
-            class="progress"
-          />
-        </div>
-        <h1>{{ percentage }}%</h1>
+      <mu-col span="10">
+        <mu-row>
+          <mu-col span="12">
+            <div class="title-container">
+              <h1>{{ title }}</h1>
+              <h3>{{ subtitle }}</h3>
+            </div>
+          </mu-col>
+        </mu-row>
+        <mu-row>
+          <mu-col span="10">
+            <slot />
+            <!--        <div class="button-container">-->
+            <mu-button color="primary" class="button" @click="handleButtonClick"
+              >DALEJ</mu-button
+            >
+            <!--           </div>-->
+          </mu-col>
+          <mu-col span="2">
+            <div class="progress-container">
+              <mu-circular-progress
+                mode="determinate"
+                :value="percentage"
+                color="#080F5B"
+                :stroke-width="40"
+                :size="200"
+                class="progress"
+              />
+              <h1>{{ percentage }}%</h1>
+            </div>
+          </mu-col>
+        </mu-row>
       </mu-col>
     </mu-row>
   </mu-container>
@@ -40,6 +54,7 @@ export default {
   props: {
     step: Number,
     title: String,
+    subtitle: String,
     percentage: Number
   },
   methods: {
@@ -59,7 +74,33 @@ export default {
   transform: rotateY(0deg) rotate(-90deg);
 }
 .progress-container {
+  padding: 4em 2em 0 0;
+  position: fixed;
   width: 72px;
   height: 72px;
+}
+.progress-container h1 {
+  text-align: center;
+  margin-left: 1.5em;
+  padding: 0.2em;
+  font-size: 3em;
+}
+.title-container {
+  padding: 0 2.5em 0 2.5em;
+}
+.title-container h1 {
+  font-size: 3.5em;
+  margin-bottom: 0;
+}
+.title-container h3 {
+  padding-top: 1em;
+  border-top: #009688 solid 3.3px;
+  text-align: justify;
+}
+.button-container {
+  position: absolute;
+}
+.button {
+  left: 55vw;
 }
 </style>
