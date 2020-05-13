@@ -2,11 +2,9 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-
+import theme from "muse-ui/lib/theme";
 import MuseUI from "muse-ui";
 import "muse-ui/dist/muse-ui.css";
-
-// import theme from "muse-ui/lib/theme";
 
 Vue.use(MuseUI);
 
@@ -18,15 +16,15 @@ new Vue({
   render: h => h(App)
 }).$mount("#app");
 
-// theme.add(
-//   "custom",
-//   {
-//     background: "#F3F3F3",
-//     secondary: "#3E3E3E",
-//     success: "#009688",
-//     primary: "#080F5B"
-//   },
-//   "light"
-// );
-//
-// theme.use("custom");
+theme.add(
+  "custom",
+  {
+    background: "#F3F3F3",
+    primary: "#080F5B",
+    secondary: "#2B2B2B",
+    success: "#009688"
+  },
+  "light"
+);
+
+theme.use("custom");

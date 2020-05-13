@@ -1,5 +1,12 @@
 <template>
-  <div class="border">
+  <div
+    :class="{
+      border: true,
+      noHighlighted: isHighlighted === 1,
+      highlighted: isHighlighted === 0,
+      novisited: isHighlighted === -1
+    }"
+  >
     <mu-flex justify-content="center">
       <h1>{{ title }}</h1>
     </mu-flex>
@@ -11,13 +18,23 @@ export default {
   name: "LeftMenuItem",
   props: {
     title: String,
-    isHighlighted: Boolean
+    isHighlighted: Number
   }
 };
 </script>
 
 <style scoped>
 .border {
-  border: black 2px solid;
+  border-top: #777 1px solid;
+}
+.highlighted {
+  color: #000;
+  background-color: #fff;
+}
+.noHighlighted {
+  color: #888;
+}
+.novisited {
+  color: #787878;
 }
 </style>
