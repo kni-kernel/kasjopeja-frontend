@@ -4,7 +4,7 @@
       border: true,
       noHighlighted: isHighlighted === 1,
       highlighted: isHighlighted === 0,
-      novisited: isHighlighted === -1
+      noVisited: isHighlighted === -1
     }"
   >
     <mu-flex justify-content="center">
@@ -34,7 +34,7 @@ export default {
 .noHighlighted {
   color: #888;
 }
-.novisited {
+.noVisited {
   color: #787878;
 }
 </style>

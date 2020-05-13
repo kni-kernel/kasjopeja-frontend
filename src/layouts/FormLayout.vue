@@ -16,11 +16,9 @@
         <mu-row>
           <mu-col span="10">
             <slot />
-            <!--        <div class="button-container">-->
             <mu-button color="primary" class="button" @click="handleButtonClick"
               >DALEJ</mu-button
             >
-            <!--           </div>-->
           </mu-col>
           <mu-col span="2">
             <div class="progress-container">
@@ -43,11 +41,7 @@
 
 <script>
 import LeftMenu from "../components/LeftMenu";
-/**
- * W tym komponencie chcemy mieć ogólny layout formularza tj:
- *  Lewy panel boczny, Nagłówek (który teksty bierze z propsów), miejsce na content oraz pasek postępu
- * Mniej więcej starałem się Wam pokazać tutaj jak to ogarnąć z VueMaterial
- */
+
 export default {
   name: "FormLayout",
   components: { LeftMenu },
@@ -96,9 +90,6 @@ export default {
   padding-top: 1em;
   border-top: #009688 solid 3.3px;
   text-align: justify;
-}
-.button-container {
-  position: absolute;
 }
 .button {
   left: 55vw;
