@@ -4,8 +4,8 @@
       <h1>AGH LOGO</h1>
     </mu-flex>
     <div>
-      <LeftMenuItem title="Test" :is-highlihted="false" />
-      <LeftMenuItem title="Test2" :is-highlihted="false" />
+      <LeftMenuItem title="Test" :is-highlighted="false" />
+      <LeftMenuItem title="Test2" :is-highlighted="false" />
     </div>
   </div>
 </template>
