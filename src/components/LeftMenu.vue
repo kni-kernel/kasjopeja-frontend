@@ -1,9 +1,9 @@
 <template>
   <div class="left-menu h-100">
     <mu-flex justify-content="center">
-      <img alt="Vue logo" src="../assets/agh_logo.svg" />
+      <img alt="Logo AGH" src="../assets/agh_logo.svg" />
     </mu-flex>
-    <div style=" border-bottom: #777 1px solid;">
+    <div class="left-menu-content">
       <LeftMenuItem
         title="Dane podstawowe"
         :is-highlighted="step === 1 ? 0 : step > 1 ? 1 : -1"
@@ -66,5 +66,8 @@ export default {
   color: black;
   font-size: 2.5em;
   padding-top: 0;
+}
+.left-menu-content {
+  border-bottom: #777 1px solid;
 }
 </style>
