@@ -6,16 +6,17 @@
     <mu-container class="inside">
       <h1>Kasjopeja</h1>
       <h3>Generator Semestralnego Planu Zajęć WFiIS AGH</h3>
+      <br /><br />
       <slot />
     </mu-container>
     <mu-container id="links">
       <a href="https://github.com/orgs/kni-kernel/teams/">
         <img :src="github" alt="Github" />
       </a>
-      <a href="https://www.facebook.com/KNIKernel/">
+      <a href="https://wiki.wfiis.pl/login">
         <img :src="wiki" alt="WFiIS Wiki" />
       </a>
-      <a href="https://wiki.wfiis.pl/login">
+      <a href="https://www.facebook.com/KNIKernel/">
         <img :src="facebook" alt="Facebook" />
       </a>
     </mu-container>
@@ -23,11 +24,6 @@
 </template>
 
 <script>
-/**
- * W tym komponencie chcemy dodać trójkąty, białe tło, ikonki w lewym dolnym rogu
- * Komponent będzie przyjmować inny komponent (jako "dziecko")
- * Ten inny komponent w zależności od strony będzie zawierać informację z startPage lub endPage
- */
 import triangles from "../assets/triangles.svg";
 import github from "../assets/github.svg";
 import wiki from "../assets/wfiis-wiki.svg";
@@ -48,9 +44,7 @@ export default {
 
 <style scoped>
 .layout {
-  /*background-image: "triangles";*/
   position: relative;
-  /*margin: 0;*/
   height: 100vh;
 }
 
@@ -69,7 +63,7 @@ export default {
   font-size: 20px;
   font-weight: normal;
   margin-top: 0;
-  margin-bottom: 60px;
+  margin-bottom: 20px;
 }
 
 #triangles {
@@ -85,5 +79,11 @@ export default {
   padding: 15px;
   right: 0;
   bottom: 0;
+}
+
+@media only screen and (max-width: 1000px) {
+  #triangles {
+    display: none;
+  }
 }
 </style>
