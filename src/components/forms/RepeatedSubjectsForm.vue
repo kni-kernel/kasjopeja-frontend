@@ -1,14 +1,179 @@
 <template>
-  <h1>Repeated Subjects form</h1>
+  <mu-container class="container">
+    <mu-form
+      :model="form"
+      class="form"
+      label-position="right"
+      label-width="200"
+    >
+      <mu-data-table
+        v-if="list.length > 0"
+        :columns="columns"
+        max-height="200"
+        :data="list"
+        :class="{ highlighted: isTableVisible === false }"
+      >
+        <template slot-scope="scope" >
+          <td>{{ scope.row.name }}</td>
+          <td>{{ scope.row.hours }}</td>
+          <td>{{ scope.row.ects }}</td>
+          <td>{{ scope.row.faculty }}</td>
+          <td>
+            <mu-checkbox
+              class="select-control-row"
+              v-model="scope.row.checkbox"
+            ></mu-checkbox>
+          </td>
+        </template>
+      </mu-data-table>
+      <mu-button color="primary" class="button" @click="showModal">
+        Zwolnij z wybranej formy przedmiotu
+      </mu-button>
+      <modal v-show="isModalVisible" @close="closeModal" />
+      <mu-data-table
+        v-if="list2.length > 0"
+        :columns="columns2"
+        max-height="200"
+        :data="list2"
+        :class="{ highlighted: isTableVisible === false }"
+      >
+        <template slot-scope="scope" >
+          <td>{{ scope.row.subject }}</td>
+          <td>{{ scope.row.type }}</td>
+          <td>{{ scope.row.date }}</td>
+          <td>{{ scope.row.grade }}</td>
+          <td>
+            <button class="btn" @click="deleteItem(scope.row)">
+              X
+            </button>
+          </td>
+        </template>
+      </mu-data-table>
+    </mu-form>
+  </mu-container>
 </template>
 
 <script>
+import modal from "./DismissalOptionModal.vue";
+
 export default {
   name: "RepeatedSubjectsForm",
+  components: {
+    modal
+  },
   props: {
     formValues: Object
+  },
+  isModalVisible: false,
+  isTableVisible: true,
+  data() {
+    return {
+      isModalVisible: false,
+      isTableVisible: true,
+      sort: {
+        name: "",
+        order: "asc"
+      },
+      columns: [
+        { title: "Przedmiot", name: "name", width: 320, align: "center" },
+        { title: "Liczba godzin", name: "hours", width: 150, align: "center" },
+        { title: "ECTS", name: "ects", width: 100, align: "center" },
+        { title: "Wydział", name: "faculty", width: 100, align: "center" },
+        { title: "Dopisz do planu", name: "checkBox", width: 150, align: "center" }
+      ],
+      columns2: [
+        { title: "Przedmiot", name: "subject", width: 294, align: "center" },
+        { title: "Forma zajęć", name: "type", width: 186, align: "center" },
+        { title: "Data zaliczenia", name: "date", width: 150, align: "center" },
+        { title: "Ocena", name: "grade", width: 85, align: "center" },
+        { title: "Usuń", name: "deleteItem", width: 125, align: "center" }
+      ],
+      list: [
+        {
+          name: "Programowanie obiektowe",
+          hours: "30/0/30/0/0/0",
+          ects: 5,
+          faculty: "WFiIS",
+          checkBox: false
+        },
+        {
+          name: "Programowanie obiektowe 2",
+          hours: "30/15/15/0/0/0",
+          ects: 4,
+          faculty: "WFiIS",
+          checkBox: false
+        },
+        {
+          name: "Programowanie obiektowe 4",
+          hours: "30/0/30/0/0/0",
+          ects: 2,
+          faculty: "WMN",
+          checkBox: false
+        },
+        {
+          name: "Programowanie obiektowe 2",
+          hours: "30/15/15/0/0/0",
+          ects: 5,
+          faculty: "WFiIS",
+          checkBox: true
+        }
+      ],
+      list2: [
+        {
+          subject: "Programowanie obiektowe",
+          type: "Ćwiczenia laboratoryjne",
+          date: "26.06.2019",
+          grade: 3.5
+        }
+      ]
+    };
+  },
+  methods: {
+    showModal() {
+      this.isModalVisible = true;
+      this.isTableVisible = false;
+    },
+    closeModal() {
+      this.isModalVisible = false;
+      this.isTableVisible = true;
+    },
+    deleteItem(item) {
+      const index = this.list.indexOf(item);
+      confirm("Are you sure you want to delete this item?") &&
+      this.list.splice(index, 1);
+    }
   }
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.form {
+  margin: 0 4em 3em;
+  width: 100%;
+  max-width: max-content;
+}
+td {
+  text-align: center;
+}
+.highlighted {
+  z-index: -2;
+}
+.select-control-row,
+.btn {
+  text-align: center;
+  vertical-align: middle;
+  border: none;
+  font-size: 1.4em;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  font-weight: bold;
+  color: #777777;
+  background: transparent;
+}
+.button {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  left: 34vw;
+}
+</style>
