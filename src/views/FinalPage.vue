@@ -1,6 +1,7 @@
 <template>
   <LandingPageLayout>
-    <div>Final Page</div>
+    <h2>Pobierz wygenerowany plik:</h2>
+    <mu-button color="success" to="/">Powrót do strony głównej</mu-button>
   </LandingPageLayout>
 </template>
 
