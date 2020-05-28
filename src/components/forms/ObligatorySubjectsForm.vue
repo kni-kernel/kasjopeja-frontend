@@ -1,11 +1,25 @@
 <template>
-  <mu-container :class="{ highlighted: isTableVisible === false }" id="table">
-    <dataTable
-      :list="list"
-      :columns="columns"
-      :deleteButton="false"
-      :checkBox="true"
-    />
+  <mu-container>
+    <mu-form
+            :model="form"
+            class="form"
+            label-position="right"
+            label-width="200"
+    >
+      
+    <mu-container 
+            :class="{ highlighted: isTableVisible === false }" 
+            id="table"
+    >
+      
+      <dataTable
+        :list="list"
+        :columns="columns"
+        :deleteButton="false"
+        :checkBox="true"
+      />
+    </mu-container>
+  </mu-form>  
   </mu-container>
 </template>
 
@@ -71,12 +85,30 @@ export default {
 </script>
 
 <style scoped>
-#table {
-  margin: 50px;
-  width: max-content;
-  padding: 20px;
-}
-td {
-  text-align: center;
-}
+  #table {
+    margin-top: 25px;
+  }
+    .button {
+    position: relative;
+    left: 35vw;
+    width: 300px;
+  }
+  td {
+    text-align: center;
+  }
+  .container {
+    position: relative;
+    min-width: 55vw;
+    /*z-index: 0;*/
+    padding: 20px;
+  }
+
+  @media only screen and (max-width: 1000px) {
+    .button {
+      left:1vw
+    }
+    .container {
+      min-width: 95vw;
+    }  
+  }
 </style>

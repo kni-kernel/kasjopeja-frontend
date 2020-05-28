@@ -146,4 +146,9 @@ export default {
   color: #009688;
   background: transparent;
 }
+@media only screen and (max-width: 1000px) {
+  .button {
+    left:1vw
+  }
+}
 </style>

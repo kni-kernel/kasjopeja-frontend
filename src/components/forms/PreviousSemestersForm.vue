@@ -138,17 +138,17 @@
     width: 100%;
     max-width: 600px;
   }
-  .container {
-    position: relative;
-  }
   .button {
-    position: absolute;
-    right: 10vw;
+    position: relative;
+    left: 35vw;
     width: 300px;
   }
-  #table.container {
-    margin: 50px;
-    width: max-content;
+  #table {
+    margin-top: 25px;
+  }
+  .container {
+    position: relative;
+    min-width: 55vw;
     /*z-index: 0;*/
     padding: 20px;
   }
@@ -167,5 +167,13 @@
     font-weight: bold;
     color: #777777;
     background: transparent;
+  }
+  @media only screen and (max-width: 1000px) {
+    .button {
+      left:1vw
+    }
+    .container {
+      min-width: 95vw;
+    }
   }
 </style>

@@ -140,33 +140,52 @@ export default {
 </script>
 
 <style scoped>
-.form {
-  margin: 0 4em 3em;
-  width: 100%;
-  max-width: max-content;
-}
-td {
-  text-align: center;
-}
-.highlighted {
-  z-index: -2;
-}
-.select-control-row,
-.btn {
-  text-align: center;
-  vertical-align: middle;
-  border: none;
-  font-size: 1.4em;
-  padding: 0;
-  margin: 0;
-  cursor: pointer;
-  font-weight: bold;
-  color: #777777;
-  background: transparent;
-}
-.button {
-  margin-top: 1em;
-  margin-bottom: 1em;
-  left: 34vw;
-}
+  .form {
+    margin-top: 3em;
+    width: 100%;
+    max-width: 600px;
+  }
+  td {
+    text-align: center;
+  }
+  #table {
+    margin-top: 25px;
+  }
+  .container {
+    position: relative;
+    min-width: 55vw;
+    /*z-index: 0;*/
+    padding: 20px;
+  }
+  .highlighted {
+    z-index: -2;
+  }
+  .select-control-row,
+  .btn {
+    text-align: center;
+    vertical-align: middle;
+    border: none;
+    font-size: 1.4em;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    font-weight: bold;
+    color: #777777;
+    background: transparent;
+  }
+  .button {
+    position: relative;
+    left: 33vw;
+    width: 319px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  @media only screen and (max-width: 1000px) {
+    .button {
+      left:2vw
+    }
+    .container {
+      min-width: 95vw;
+    }
+  }
 </style>
