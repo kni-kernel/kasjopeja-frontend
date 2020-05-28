@@ -6,26 +6,17 @@
       label-position="right"
       label-width="200"
     >
-      <mu-data-table
-        v-if="list.length > 0"
-        :columns="columns"
-        max-height="200"
-        :data="list"
+      <mu-container
         :class="{ highlighted: isTableVisible === false }"
+        id="table"
       >
-        <template slot-scope="scope" >
-          <td>{{ scope.row.name }}</td>
-          <td>{{ scope.row.hours }}</td>
-          <td>{{ scope.row.ects }}</td>
-          <td>{{ scope.row.faculty }}</td>
-          <td>
-            <mu-checkbox
-              class="select-control-row"
-              v-model="scope.row.checkbox"
-            ></mu-checkbox>
-          </td>
-        </template>
-      </mu-data-table>
+        <dataTable
+          :list="list"
+          :columns="columns"
+          :deleteButton="false"
+          :checkBox="true"
+        />
+      </mu-container>
       <mu-button color="primary" class="button" @click="showModal">
         Zwolnij z wybranej formy przedmiotu
       </mu-button>
@@ -37,7 +28,7 @@
         :data="list2"
         :class="{ highlighted: isTableVisible === false }"
       >
-        <template slot-scope="scope" >
+        <template slot-scope="scope">
           <td>{{ scope.row.subject }}</td>
           <td>{{ scope.row.type }}</td>
           <td>{{ scope.row.date }}</td>
@@ -55,11 +46,13 @@
 
 <script>
 import modal from "./DismissalOptionModal.vue";
+import dataTable from "./DataTableTemplate.vue";
 
 export default {
   name: "RepeatedSubjectsForm",
   components: {
-    modal
+    modal,
+    dataTable
   },
   props: {
     formValues: Object
@@ -79,14 +72,14 @@ export default {
         { title: "Liczba godzin", name: "hours", width: 150, align: "center" },
         { title: "ECTS", name: "ects", width: 100, align: "center" },
         { title: "Wydział", name: "faculty", width: 100, align: "center" },
-        { title: "Dopisz do planu", name: "checkBox", width: 150, align: "center" }
+        { title: "Dopisz do planu", name: "checkBox", width: 145, align: "center" }
       ],
       columns2: [
         { title: "Przedmiot", name: "subject", width: 294, align: "center" },
         { title: "Forma zajęć", name: "type", width: 186, align: "center" },
         { title: "Data zaliczenia", name: "date", width: 150, align: "center" },
         { title: "Ocena", name: "grade", width: 85, align: "center" },
-        { title: "Usuń", name: "deleteItem", width: 125, align: "center" }
+        { title: "Usuń", name: "deleteItem", width: 120, align: "center" }
       ],
       list: [
         {
@@ -140,7 +133,7 @@ export default {
     deleteItem(item) {
       const index = this.list.indexOf(item);
       confirm("Are you sure you want to delete this item?") &&
-      this.list.splice(index, 1);
+        this.list.splice(index, 1);
     }
   }
 };
