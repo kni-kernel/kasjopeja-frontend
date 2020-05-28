@@ -21,25 +21,17 @@
         Zwolnij z wybranej formy przedmiotu
       </mu-button>
       <modal v-show="isModalVisible" @close="closeModal" />
-      <mu-data-table
-        v-if="list2.length > 0"
-        :columns="columns2"
-        max-height="200"
-        :data="list2"
+      <mu-container
         :class="{ highlighted: isTableVisible === false }"
+        id="table"
       >
-        <template slot-scope="scope">
-          <td>{{ scope.row.subject }}</td>
-          <td>{{ scope.row.type }}</td>
-          <td>{{ scope.row.date }}</td>
-          <td>{{ scope.row.grade }}</td>
-          <td>
-            <button class="btn" @click="deleteItem(scope.row)">
-              X
-            </button>
-          </td>
-        </template>
-      </mu-data-table>
+        <dataTable
+          :list="list2"
+          :columns="columns2"
+          :deleteButton="true"
+          :checkBox="false"
+        />
+      </mu-container>
     </mu-form>
   </mu-container>
 </template>
@@ -75,7 +67,7 @@ export default {
         { title: "Dopisz do planu", name: "checkBox", width: 145, align: "center" }
       ],
       columns2: [
-        { title: "Przedmiot", name: "subject", width: 294, align: "center" },
+        { title: "Przedmiot", name: "name", width: 294, align: "center" },
         { title: "Forma zajęć", name: "type", width: 186, align: "center" },
         { title: "Data zaliczenia", name: "date", width: 150, align: "center" },
         { title: "Ocena", name: "grade", width: 85, align: "center" },
@@ -113,7 +105,7 @@ export default {
       ],
       list2: [
         {
-          subject: "Programowanie obiektowe",
+          name: "Programowanie obiektowe",
           type: "Ćwiczenia laboratoryjne",
           date: "26.06.2019",
           grade: 3.5
