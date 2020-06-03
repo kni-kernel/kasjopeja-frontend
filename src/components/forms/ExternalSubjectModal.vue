@@ -157,7 +157,7 @@ export default {
 }
 @media only screen and (max-width: 1000px) {
   .button {
-    left:1vw
+    left: 1vw;
   }
 }
 </style>

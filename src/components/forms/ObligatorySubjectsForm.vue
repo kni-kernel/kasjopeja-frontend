@@ -6,12 +6,12 @@
             label-position="right"
             label-width="200"
     >
-      
-    <mu-container 
-            :class="{ highlighted: isTableVisible === false }" 
+
+    <mu-container
+            :class="{ highlighted: isTableVisible === false }"
             id="table"
     >
-      
+
       <dataTable
         :list="list"
         :columns="columns"
@@ -19,7 +19,7 @@
         :checkBox="true"
       />
     </mu-container>
-  </mu-form>  
+  </mu-form>
   </mu-container>
 </template>
 
@@ -109,6 +109,6 @@ export default {
     }
     .container {
       min-width: 95vw;
-    }  
+    }
   }
 </style>
