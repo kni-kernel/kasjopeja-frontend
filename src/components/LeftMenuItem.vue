@@ -24,17 +24,17 @@ export default {
 </script>
 
 <style scoped>
-  .border {
-    border-top: #777 1px solid;
-  }
-  .highlighted {
-    color: #000;
-    background-color: #fff;
-  }
-  .noHighlighted {
-    color: #888;
-  }
-  .noVisited {
-    color: #787878;
-  }
+.border {
+  border-top: #777 1px solid;
+}
+.highlighted {
+  color: #000;
+  background-color: #fff;
+}
+.noHighlighted {
+  color: #888;
+}
+.noVisited {
+  color: #787878;
+}
 </style>

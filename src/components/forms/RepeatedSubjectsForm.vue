@@ -64,7 +64,12 @@ export default {
         { title: "Liczba godzin", name: "hours", width: 150, align: "center" },
         { title: "ECTS", name: "ects", width: 100, align: "center" },
         { title: "Wydział", name: "faculty", width: 100, align: "center" },
-        { title: "Dopisz do planu", name: "checkBox", width: 145, align: "center" }
+        {
+          title: "Dopisz do planu",
+          name: "checkBox",
+          width: 145,
+          align: "center"
+        }
       ],
       columns2: [
         { title: "Przedmiot", name: "name", width: 294, align: "center" },
@@ -132,52 +137,36 @@ export default {
 </script>
 
 <style scoped>
-  .form {
-    margin-top: 3em;
-    width: 100%;
-    max-width: 600px;
-  }
-  td {
-    text-align: center;
-  }
-  #table {
-    margin-top: 25px;
+.form {
+  margin-top: 3em;
+  width: 100%;
+  max-width: 600px;
+}
+
+#table {
+  margin-top: 25px;
+}
+
+.container {
+  position: relative;
+  min-width: 55vw;
+  padding: 20px;
+}
+
+.button {
+  position: relative;
+  left: 33vw;
+  width: 319px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+@media only screen and (max-width: 1000px) {
+  .button {
+    left: 2vw;
   }
   .container {
-    position: relative;
-    min-width: 55vw;
-    /*z-index: 0;*/
-    padding: 20px;
+    min-width: 95vw;
   }
-  .highlighted {
-    z-index: -2;
-  }
-  .select-control-row,
-  .btn {
-    text-align: center;
-    vertical-align: middle;
-    border: none;
-    font-size: 1.4em;
-    padding: 0;
-    margin: 0;
-    cursor: pointer;
-    font-weight: bold;
-    color: #777777;
-    background: transparent;
-  }
-  .button {
-    position: relative;
-    left: 33vw;
-    width: 319px;
-    margin-top: 1em;
-    margin-bottom: 1em;
-  }
-  @media only screen and (max-width: 1000px) {
-    .button {
-      left:2vw
-    }
-    .container {
-      min-width: 95vw;
-    }
-  }
+}
 </style>

@@ -27,10 +27,16 @@
               <mu-text-field v-model="form.subject" type="text"></mu-text-field>
             </mu-form-item>
             <mu-form-item prop="hours" label="Liczba godzin W/C/L/P/S/I:">
-              <mu-text-field v-model="form.numberOfHours" type="text"></mu-text-field>
+              <mu-text-field
+                v-model="form.numberOfHours"
+                type="text"
+              ></mu-text-field>
             </mu-form-item>
             <mu-form-item prop="ects" label="Ilość punktów ECTS:">
-              <mu-text-field v-model="form.ectsPoints" type="text"></mu-text-field>
+              <mu-text-field
+                v-model="form.ectsPoints"
+                type="text"
+              ></mu-text-field>
             </mu-form-item>
             <mu-form-item prop="faculty" label="Wydział:">
               <mu-select v-model="form.faculty">
@@ -81,7 +87,24 @@ export default {
   },
   data() {
     return {
-      departments: ["WFiIS", "WGiG", "WIMiIP", "WEAIiIB", "WIEiT", "WIMiR", "WGGiOŚ", "WGGiIŚ", "WIMiC", "WO", "WMN", "WWNiG", "WZ", "WEiP", "WMS", "WH"],
+      departments: [
+        "WFiIS",
+        "WGiG",
+        "WIMiIP",
+        "WEAIiIB",
+        "WIEiT",
+        "WIMiR",
+        "WGGiOŚ",
+        "WGGiIŚ",
+        "WIMiC",
+        "WO",
+        "WMN",
+        "WWNiG",
+        "WZ",
+        "WEiP",
+        "WMS",
+        "WH"
+      ],
       sessions: ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"],
       form: {
         subject: "",
