@@ -14,12 +14,12 @@
           </mu-col>
         </mu-row>
         <mu-row>
-          <mu-col span="10">
-            <slot />
-            <mu-button color="primary" class="button" @click="handleButtonClick"
-              >DALEJ</mu-button
-            >
-          </mu-col>
+            <mu-col span="10">
+                <slot />
+                <mu-button color="primary" class="button" @click="handleButtonClick"
+                >DALEJ</mu-button
+                >
+            </mu-col>
           <mu-col span="2">
             <div class="progress-container">
               <mu-circular-progress
@@ -84,12 +84,17 @@ export default {
 }
 .title-container h1 {
   font-size: 3.5em;
+  font-weight: lighter;
   margin-bottom: 0;
 }
 .title-container h3 {
   padding-top: 1em;
   border-top: #009688 solid 3.3px;
   text-align: justify;
+  font-weight: lighter;
+}
+.button-container {
+  position: absolute;
 }
 .button {
   left: 55vw;

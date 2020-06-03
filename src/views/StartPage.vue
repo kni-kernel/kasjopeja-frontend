@@ -1,7 +1,7 @@
 <template>
   <LandingPageLayout>
-    <div>Start Page</div>
-    <mu-button color="primary" to="/form">Go to form</mu-button>
+    <h3>Wypełnij formularz. Wygeneruj PDF. Wyślij do dziekanatu.</h3>
+    <mu-button color="success" to="/form">ROZPOCZNIJ</mu-button>
   </LandingPageLayout>
 </template>
 
