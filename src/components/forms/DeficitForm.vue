@@ -32,26 +32,11 @@
         :class="{ highlighted: isTableVisible === false }"
         id="table"
       >
-        <mu-paper>
-          <mu-data-table
-            v-if="list.length > 0"
-            :columns="columns"
-            max-height="200"
-            :data="list"
-          >
-            <template slot-scope="scope">
-              <td>{{ scope.row.name }}</td>
-              <td>{{ scope.row.session }}</td>
-              <td>{{ scope.row.ects }}</td>
-              <td>{{ scope.row.faculty }}</td>
-              <td>
-                <button class="btn-close" @click="deleteItem(scope.row)">
-                  X
-                </button>
-              </td>
-            </template>
-          </mu-data-table>
-        </mu-paper>
+        <dataTable :list="list"
+                   :columns="columns"
+                   :deleteButton="true"
+                   :checkBox="false"
+        />
       </mu-container>
     </mu-form>
   </mu-container>
@@ -59,10 +44,13 @@
 
 <script>
 import modal from "./ExternalSubjectModal.vue";
+import dataTable from "./DataTableTemplate.vue";
+
 export default {
   name: "DeficitForm",
   components: {
-    modal
+    modal,
+    dataTable
   },
   props: {
     formValues: Object
