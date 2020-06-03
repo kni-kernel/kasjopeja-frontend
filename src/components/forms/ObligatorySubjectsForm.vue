@@ -1,11 +1,23 @@
 <template>
-  <mu-container :class="{ highlighted: isTableVisible === false }" id="table">
-    <dataTable
-      :list="list"
-      :columns="columns"
-      :deleteButton="false"
-      :checkBox="true"
-    />
+  <mu-container>
+    <mu-form
+      :model="form"
+      class="form"
+      label-position="right"
+      label-width="200"
+    >
+      <mu-container
+        :class="{ highlighted: isTableVisible === false }"
+        id="table"
+      >
+        <dataTable
+          :list="list"
+          :columns="columns"
+          :deleteButton="false"
+          :checkBox="true"
+        />
+      </mu-container>
+    </mu-form>
   </mu-container>
 </template>
 
@@ -31,7 +43,12 @@ export default {
         { title: "Przedmiot", width: 400, name: "name", align: "center" },
         { title: "Liczba godzin", name: "hours", width: 200, align: "center" },
         { title: "ECTS", name: "ects", width: 100, align: "center" },
-        { title: "Dopisz do planu", name: "checkBox", width: 150, align: "center" }
+        {
+          title: "Dopisz do planu",
+          name: "checkBox",
+          width: 150,
+          align: "center"
+        }
       ],
       list: [
         {
@@ -72,11 +89,6 @@ export default {
 
 <style scoped>
 #table {
-  margin: 50px;
-  width: max-content;
-  padding: 20px;
-}
-td {
-  text-align: center;
+  margin-top: 25px;
 }
 </style>

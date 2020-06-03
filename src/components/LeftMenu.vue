@@ -54,8 +54,8 @@ export default {
 
 <style scoped>
 .left-menu {
-  position: fixed;
-  width: 285px;
+  position: absolute;
+  min-height: max-content;
   font-family: "Roboto", sans-serif;
   background-color: #3f3f3f;
   font-size: 0.7em;

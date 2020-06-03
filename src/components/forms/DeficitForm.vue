@@ -32,10 +32,11 @@
         :class="{ highlighted: isTableVisible === false }"
         id="table"
       >
-        <dataTable :list="list"
-                   :columns="columns"
-                   :deleteButton="true"
-                   :checkBox="false"
+        <dataTable
+          :list="list"
+          :columns="columns"
+          :deleteButton="true"
+          :checkBox="false"
         />
       </mu-container>
     </mu-form>
@@ -138,34 +139,29 @@ export default {
   width: 100%;
   max-width: 600px;
 }
-.container {
-  position: relative;
-}
+
 .button {
-  position: absolute;
-  right: 10vw;
+  position: relative;
+  left: 35vw;
   width: 300px;
 }
-#table.container {
-  margin: 50px;
-  width: max-content;
-  /*z-index: 0;*/
+
+#table {
+  margin-top: 25px;
+}
+
+.container {
+  position: relative;
+  min-width: 55vw;
   padding: 20px;
 }
-td {
-  text-align: center;
-}
-.highlighted {
-  z-index: -2;
-}
-.btn-close {
-  border: none;
-  font-size: 14px;
-  padding: 0;
-  margin: 0;
-  cursor: pointer;
-  font-weight: bold;
-  color: #777777;
-  background: transparent;
+
+@media only screen and (max-width: 1000px) {
+  .button {
+    left: 1vw;
+  }
+  .container {
+    min-width: 95vw;
+  }
 }
 </style>

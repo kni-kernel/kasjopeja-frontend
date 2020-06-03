@@ -78,8 +78,19 @@ export default {
   },
   data() {
     return {
-      subjects: [ "Programowanie obiektowe I", "Programowanie obiektowe II", "Tutaj fajnie jakby importowały sie nazwy przedmiotów z tabelki wyżej, a jeszcze lepiej te z zaznaczonych checkBoxem" ],
-      types: [ "Wykład", "Ćwiczenia audytoryjne", "Ćwiczenia laboratoryjne", "Ćwiczenia projektowe", "Zajęcia seminaryjne", "Inne" ],
+      subjects: [
+        "Programowanie obiektowe I",
+        "Programowanie obiektowe II",
+        "Tutaj fajnie jakby importowały sie nazwy przedmiotów z tabelki wyżej, a jeszcze lepiej te z zaznaczonych checkBoxem"
+      ],
+      types: [
+        "Wykład",
+        "Ćwiczenia audytoryjne",
+        "Ćwiczenia laboratoryjne",
+        "Ćwiczenia projektowe",
+        "Zajęcia seminaryjne",
+        "Inne"
+      ],
       form: {
         subject: "",
         type: "",
@@ -145,5 +156,10 @@ export default {
   font-weight: bold;
   color: #009688;
   background: transparent;
+}
+@media only screen and (max-width: 1000px) {
+  .button {
+    left: 1vw;
+  }
 }
 </style>

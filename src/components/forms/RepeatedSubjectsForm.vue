@@ -21,25 +21,17 @@
         Zwolnij z wybranej formy przedmiotu
       </mu-button>
       <modal v-show="isModalVisible" @close="closeModal" />
-      <mu-data-table
-        v-if="list2.length > 0"
-        :columns="columns2"
-        max-height="200"
-        :data="list2"
+      <mu-container
         :class="{ highlighted: isTableVisible === false }"
+        id="table"
       >
-        <template slot-scope="scope">
-          <td>{{ scope.row.subject }}</td>
-          <td>{{ scope.row.type }}</td>
-          <td>{{ scope.row.date }}</td>
-          <td>{{ scope.row.grade }}</td>
-          <td>
-            <button class="btn" @click="deleteItem(scope.row)">
-              X
-            </button>
-          </td>
-        </template>
-      </mu-data-table>
+        <dataTable
+          :list="list2"
+          :columns="columns2"
+          :deleteButton="true"
+          :checkBox="false"
+        />
+      </mu-container>
     </mu-form>
   </mu-container>
 </template>
@@ -72,10 +64,15 @@ export default {
         { title: "Liczba godzin", name: "hours", width: 150, align: "center" },
         { title: "ECTS", name: "ects", width: 100, align: "center" },
         { title: "Wydział", name: "faculty", width: 100, align: "center" },
-        { title: "Dopisz do planu", name: "checkBox", width: 145, align: "center" }
+        {
+          title: "Dopisz do planu",
+          name: "checkBox",
+          width: 145,
+          align: "center"
+        }
       ],
       columns2: [
-        { title: "Przedmiot", name: "subject", width: 294, align: "center" },
+        { title: "Przedmiot", name: "name", width: 294, align: "center" },
         { title: "Forma zajęć", name: "type", width: 186, align: "center" },
         { title: "Data zaliczenia", name: "date", width: 150, align: "center" },
         { title: "Ocena", name: "grade", width: 85, align: "center" },
@@ -113,7 +110,7 @@ export default {
       ],
       list2: [
         {
-          subject: "Programowanie obiektowe",
+          name: "Programowanie obiektowe",
           type: "Ćwiczenia laboratoryjne",
           date: "26.06.2019",
           grade: 3.5
@@ -141,32 +138,35 @@ export default {
 
 <style scoped>
 .form {
-  margin: 0 4em 3em;
+  margin-top: 3em;
   width: 100%;
-  max-width: max-content;
+  max-width: 600px;
 }
-td {
-  text-align: center;
+
+#table {
+  margin-top: 25px;
 }
-.highlighted {
-  z-index: -2;
+
+.container {
+  position: relative;
+  min-width: 55vw;
+  padding: 20px;
 }
-.select-control-row,
-.btn {
-  text-align: center;
-  vertical-align: middle;
-  border: none;
-  font-size: 1.4em;
-  padding: 0;
-  margin: 0;
-  cursor: pointer;
-  font-weight: bold;
-  color: #777777;
-  background: transparent;
-}
+
 .button {
+  position: relative;
+  left: 33vw;
+  width: 319px;
   margin-top: 1em;
   margin-bottom: 1em;
-  left: 34vw;
+}
+
+@media only screen and (max-width: 1000px) {
+  .button {
+    left: 2vw;
+  }
+  .container {
+    min-width: 95vw;
+  }
 }
 </style>

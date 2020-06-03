@@ -59,7 +59,8 @@ export default {
   font-weight: normal;
   margin-bottom: 0;
 }
-.inside h3 {
+.inside h3,
+.inside h2 {
   font-size: 20px;
   font-weight: normal;
   margin-top: 0;

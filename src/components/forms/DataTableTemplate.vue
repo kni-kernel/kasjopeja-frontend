@@ -12,6 +12,9 @@
         <td v-if="scope.row.hours">{{ scope.row.hours }}</td>
         <td v-if="scope.row.ects">{{ scope.row.ects }}</td>
         <td v-if="scope.row.faculty">{{ scope.row.faculty }}</td>
+        <td v-if="scope.row.type">{{ scope.row.type }}</td>
+        <td v-if="scope.row.date">{{ scope.row.date }}</td>
+        <td v-if="scope.row.grade">{{ scope.row.grade }}</td>
         <td v-if="checkBox">
           <mu-checkbox
             class="select-control-row"
