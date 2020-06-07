@@ -54,20 +54,22 @@ export default {
 </script>
 
 <style scoped>
-td {
-  text-align: center;
-}
-.btn-close,
-.select-control-row {
-  text-align: center;
-  vertical-align: middle;
-  border: none;
-  font-size: 14px;
-  padding: 0;
-  margin: 0;
-  cursor: pointer;
-  font-weight: bold;
-  color: #777777;
-  background: transparent;
-}
+
+  td {
+    text-align: center;
+  }
+  .btn-close,
+  .select-control-row {
+   text-align: center;
+    vertical-align: middle;
+    border: none;
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    font-weight: bold;
+    color: #777777;
+    background: transparent;
+  }
+
 </style>

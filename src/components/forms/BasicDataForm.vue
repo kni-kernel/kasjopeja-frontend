@@ -97,7 +97,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped>  
 .form {
   margin-top: 3em;
   width: 100%;

@@ -53,22 +53,28 @@ export default {
 </script>
 
 <style scoped>
-.left-menu {
-  position: absolute;
-  min-height: max-content;
-  font-family: "Roboto", sans-serif;
-  background-color: #3f3f3f;
-  font-size: 0.7em;
-  text-align: center;
-  font-style: normal;
-  font-weight: normal;
-}
-.left-menu h1 {
-  color: black;
-  font-size: 2.5em;
-  padding-top: 0;
-}
-.left-menu-content {
-  border-bottom: #777 1px solid;
-}
+  .left-menu {
+    top: 0;
+    bottom: 0;
+    position: sticky;
+    min-height: 50em;
+    font-family: "Roboto", sans-serif;
+    background-color: #3f3f3f;
+    font-size: 0.7em;
+    text-align: center;
+    font-style: normal;
+    font-weight: normal;
+  }
+  .left-menu h1 {
+    color: black;
+    font-size: 2.5em;
+    padding-top: 0;
+  }
+  .left-menu-content {
+    border-bottom: #777 1px solid;
+    position: sticky;
+
+  }
+
+
 </style>
