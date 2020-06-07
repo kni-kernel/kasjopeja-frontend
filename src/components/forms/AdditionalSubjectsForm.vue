@@ -122,6 +122,7 @@ export default {
 </script>
 
 <style scoped>
+
   .form {
     margin-top: 3em;
     width: 100%;

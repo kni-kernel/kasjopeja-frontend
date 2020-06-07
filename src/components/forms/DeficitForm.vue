@@ -68,7 +68,7 @@ export default {
         order: "asc"
       },
       columns: [
-        { title: "Przedmiot", width: 400, height: 200, name: "name", align: "center" },
+        { title: "Przedmiot", width: 400, name: "name", align: "center" },
         { title: "Semestr", name: "session", width: 100, align: "center" },
         { title: "ECTS", name: "ects", width: 100, align: "center" },
         { title: "Wydział", name: "faculty", width: 100, align: "center" },
@@ -98,8 +98,7 @@ export default {
           session: 1,
           ects: 5,
           faculty: "WFiIS"
-        },
-
+        }
       ]
     };
   },

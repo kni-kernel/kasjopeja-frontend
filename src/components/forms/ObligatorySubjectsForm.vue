@@ -45,6 +45,7 @@ export default {
         { title: "Liczba godzin", name: "hours", width: 200, align: "center" },
         { title: "ECTS", name: "ects", width: 100, align: "center" },
         { title: "Dopisz do planu", name: "checkBox", width: 150, align: "center" }
+
       ],
       list: [
         {
@@ -110,4 +111,5 @@ export default {
       min-width: 95vw;
     }  
   }
+
 </style>

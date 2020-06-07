@@ -54,6 +54,7 @@ export default {
 </script>
 
 <style scoped>
+
   td {
     text-align: center;
   }
@@ -70,4 +71,5 @@ export default {
     color: #777777;
     background: transparent;
   }
+
 </style>
