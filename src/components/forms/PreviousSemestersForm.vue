@@ -98,18 +98,6 @@
             session: 1,
             ects: 5,
             faculty: "WFiIS"
-          },
-          {
-            name: "Programowanie obiektowe 2",
-            session: 4,
-            ects: 5,
-            faculty: "WFiIS"
-          },
-          {
-            name: "Programowanie obiektowe 4",
-            session: 3,
-            ects: 5,
-            faculty: "WEAIB"
           }
         ]
       };

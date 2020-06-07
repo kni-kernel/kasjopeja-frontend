@@ -29,7 +29,7 @@ export default {
   }
   .highlighted {
     color: #000;
-    background-color: #fff;
+    background-color: #fafafa;
   }
   .noHighlighted {
     color: #888;

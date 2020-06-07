@@ -54,8 +54,10 @@ export default {
 
 <style scoped>
   .left-menu {
-    position: absolute;
-    min-height: max-content;
+    top: 0;
+    bottom: 0;
+    position: sticky;
+    min-height: 50em;
     font-family: "Roboto", sans-serif;
     background-color: #3f3f3f;
     font-size: 0.7em;
@@ -70,6 +72,8 @@ export default {
   }
   .left-menu-content {
     border-bottom: #777 1px solid;
+    position: sticky;
+
   }
 
 </style>

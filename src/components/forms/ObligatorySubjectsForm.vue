@@ -1,5 +1,8 @@
 <template>
-  <mu-container>
+  <mu-container
+          :class="{ highlighted: isTableVisible === false }"
+          id="table"
+  >
     <mu-form
             :model="form"
             class="form"
@@ -7,10 +10,7 @@
             label-width="200"
     >
       
-    <mu-container 
-            :class="{ highlighted: isTableVisible === false }" 
-            id="table"
-    >
+
       
       <dataTable
         :list="list"
@@ -18,8 +18,7 @@
         :deleteButton="false"
         :checkBox="true"
       />
-    </mu-container>
-  </mu-form>  
+  </mu-form>
   </mu-container>
 </template>
 
@@ -88,7 +87,7 @@ export default {
   #table {
     margin-top: 25px;
   }
-    .button {
+  .button {
     position: relative;
     left: 35vw;
     width: 300px;
@@ -99,7 +98,7 @@ export default {
   .container {
     position: relative;
     min-width: 55vw;
-    /*z-index: 0;*/
+    max-width: max-content;
     padding: 20px;
   }
 

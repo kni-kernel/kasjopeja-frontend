@@ -94,13 +94,14 @@ export default {
     text-align: justify;
     font-weight: lighter;
   }
-  .button-container {
-    position: absolute;
-  }
   .button {
     left:50vw;
+    margin-bottom: 30px;
   }
-
+  .left-menu {
+    possition: sticky;
+    top: 0;
+  }
   @media only screen and (max-width: 1000px) {
     .left-menu {
       display: none;
