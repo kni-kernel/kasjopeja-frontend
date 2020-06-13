@@ -10,21 +10,22 @@ Vue.use(MuseUI);
 
 Vue.config.productionTip = false;
 
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount("#app");
-
 theme.add(
   "custom",
   {
     background: "#F3F3F3",
     primary: "#080F5B",
     secondary: "#2B2B2B",
-    success: "#009688"
+    success: "#009688",
+    info: "#080F5B"
   },
   "light"
 );
 
 theme.use("custom");
+
+new Vue({
+  router,
+  store,
+  render: h => h(App)
+}).$mount("#app");

@@ -24,19 +24,13 @@
         <section class="modal-body" id="modalDescription">
           <slot name="body">
             <mu-form-item prop="subject" label="Nazwa przedmiotu">
-              <mu-text-field v-model="form.subject" type="text"></mu-text-field>
+              <mu-text-field v-model="form.name" type="text"></mu-text-field>
             </mu-form-item>
-            <mu-form-item prop="hours" label="Liczba godzin W/C/L/P/S/I:">
-              <mu-text-field
-                v-model="form.numberOfHours"
-                type="text"
-              ></mu-text-field>
+            <mu-form-item prop="hours" label="Liczba godzin W/C/L/P/S:">
+              <mu-text-field v-model="form.hours" type="text"></mu-text-field>
             </mu-form-item>
             <mu-form-item prop="ects" label="Ilość punktów ECTS:">
-              <mu-text-field
-                v-model="form.ectsPoints"
-                type="text"
-              ></mu-text-field>
+              <mu-text-field v-model="form.ects" type="text"></mu-text-field>
             </mu-form-item>
             <mu-form-item prop="faculty" label="Wydział:">
               <mu-select v-model="form.faculty">
@@ -48,10 +42,10 @@
                 ></mu-option>
               </mu-select>
             </mu-form-item>
-            <mu-form-item prop="session" label="Semestr:">
-              <mu-select v-model="form.session">
+            <mu-form-item prop="semester" label="Semestr:">
+              <mu-select v-model="form.semester">
                 <mu-option
-                  v-for="option in sessions"
+                  v-for="option in semesters"
                   :key="option"
                   :label="option"
                   :value="option"
@@ -67,7 +61,7 @@
               type="button"
               color="primary"
               class="button"
-              @click="close"
+              @click="add"
               aria-label="Close modal"
             >
               Dodaj
@@ -80,11 +74,11 @@
 </template>
 
 <script>
+import { EventBus } from "../../utils/EventBus";
+import { romanianToInt } from "../../utils/functions";
+
 export default {
   name: "ExternalSubjectModal",
-  props: {
-    formValues: Object
-  },
   data() {
     return {
       departments: [
@@ -105,18 +99,32 @@ export default {
         "WMS",
         "WH"
       ],
-      sessions: ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"],
+      semesters: ["I", "II", "III", "IV", "V", "VI", "VII"],
       form: {
-        subject: "",
+        name: "",
         hours: "",
         ects: "",
         faculty: "",
-        session: ""
-        // payload = {'key1': 'value1', 'key2': 'value2'}
+        semester: ""
       }
     };
   },
   methods: {
+    add() {
+      EventBus.$emit("externalSubjectModalClosed", {
+        ...this.form,
+        semester: romanianToInt(this.form.semester),
+        ects: parseInt(this.form.ects, 10)
+      });
+      this.form = {
+        name: "",
+        hours: "",
+        ects: "",
+        faculty: "",
+        semester: ""
+      };
+      this.close();
+    },
     close() {
       this.$emit("close");
     }
@@ -135,6 +143,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 666;
 }
 
 .modal {
@@ -180,7 +189,7 @@ export default {
 }
 @media only screen and (max-width: 1000px) {
   .button {
-    left:1vw
+    left: 1vw;
   }
 }
 </style>

@@ -1,17 +1,12 @@
 <template>
-  <FormLayout
-    :step="step"
-    :title="title"
-    :subtitle="subtitle"
-    :percentage="percentage"
-  >
-    <BasicDataForm v-if="step === 1" :form-values="formValues" />
-    <DeficitForm v-if="step === 2" :form-values="formValues" />
-    <PreviousSemestersForm v-if="step === 3" :form-values="formValues" />
-    <ObligatorySubjectsForm v-if="step === 4" :form-values="formValues" />
-    <ElectiveSubjectsForm v-if="step === 5" :form-values="formValues" />
-    <AdditionalSubjectsForm v-if="step === 6" :form-values="formValues" />
-    <RepeatedSubjectsForm v-if="step === 7" :form-values="formValues" />
+  <FormLayout :step="step" :title="title" :subtitle="subtitle">
+    <BasicDataForm v-if="step === 1" />
+    <DeficitForm v-if="step === 2" />
+    <PreviousSemestersForm v-if="step === 3" />
+    <ObligatorySubjectsForm v-if="step === 4" />
+    <ElectiveSubjectsForm v-if="step === 5" />
+    <AdditionalSubjectsForm v-if="step === 6" />
+    <RepeatedSubjectsForm v-if="step === 7" />
   </FormLayout>
 </template>
 
@@ -26,6 +21,8 @@ import ObligatorySubjectsForm from "../components/forms/ObligatorySubjectsForm";
 import PreviousSemestersForm from "../components/forms/PreviousSemestersForm";
 import RepeatedSubjectsForm from "../components/forms/RepeatedSubjectsForm";
 
+import { EventBus } from "../utils/EventBus";
+
 export default {
   name: "FormPage",
   components: {
@@ -39,9 +36,10 @@ export default {
     RepeatedSubjectsForm
   },
   created() {
-    this.$on("changeFormPage", () => {
+    EventBus.$on("changeFormPage", () => {
       if (this.step === 7) {
-        this.handleFormSend();
+        this.$router.push("/final");
+        this.step = 1;
       } else {
         this.step++;
       }
@@ -49,11 +47,7 @@ export default {
   },
   data() {
     return {
-      step: 1,
-      formValues: {
-        firstName: "",
-        lastName: ""
-      }
+      step: 1
     };
   },
   computed: {
@@ -116,19 +110,7 @@ export default {
         default:
           return "";
       }
-    },
-    percentage() {
-      return Math.round(((this.step - 1) / 7) * 100);
-    }
-  },
-  methods: {
-    handleFormSend() {
-      // TODO: porządne todo :D
-      console.log("sending form...");
-      this.$router.push("/final");
     }
   }
 };
 </script>
-
-<style scoped></style>

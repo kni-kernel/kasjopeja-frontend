@@ -3,6 +3,23 @@
     <mu-flex justify-content="center">
       <img alt="Logo AGH" src="../assets/agh_logo.svg" />
     </mu-flex>
+    <mu-flex class="progress" justify-content="center">
+      <vue-circle
+        ref="progressCircle"
+        :progress="percentage"
+        :size="100"
+        :reverse="false"
+        line-cap="round"
+        :fill="{ color: '#009688' }"
+        :start-angle="-0.5 * Math.PI"
+        empty-fill="#fafafa"
+        :animation-start-value="0.0"
+        insert-mode="append"
+        :thickness="5"
+        :show-percent="true"
+      >
+      </vue-circle>
+    </mu-flex>
     <div class="left-menu-content">
       <LeftMenuItem
         title="Dane podstawowe"
@@ -37,10 +54,13 @@
 </template>
 
 <script>
+import VueCircle from "vue2-circle-progress";
+
 import LeftMenuItem from "./LeftMenuItem";
+
 export default {
   name: "LeftMenu",
-  components: { LeftMenuItem },
+  components: { LeftMenuItem, VueCircle },
   props: {
     step: Number
   },
@@ -48,33 +68,45 @@ export default {
     return {
       active: 0
     };
+  },
+  computed: {
+    percentage() {
+      return Math.round(((this.step - 1) / 7) * 100);
+    }
+  },
+  watch: {
+    step: function(newVal) {
+      this.$refs.progressCircle.updateProgress(
+        Math.round(((newVal - 1) / 7) * 100)
+      );
+    }
   }
 };
 </script>
 
 <style scoped>
-  .left-menu {
-    top: 0;
-    bottom: 0;
-    position: sticky;
-    min-height: 50em;
-    font-family: "Roboto", sans-serif;
-    background-color: #3f3f3f;
-    font-size: 0.7em;
-    text-align: center;
-    font-style: normal;
-    font-weight: normal;
-  }
-  .left-menu h1 {
-    color: black;
-    font-size: 2.5em;
-    padding-top: 0;
-  }
-  .left-menu-content {
-    border-bottom: #777 1px solid;
-    position: sticky;
-
-  }
-
-
+.left-menu {
+  top: 0;
+  bottom: 0;
+  position: sticky;
+  min-height: 50em;
+  font-family: "Roboto", sans-serif;
+  background-color: #3f3f3f;
+  font-size: 0.7em;
+  text-align: center;
+  font-style: normal;
+  font-weight: normal;
+}
+.left-menu h1 {
+  color: black;
+  font-size: 2.5em;
+  padding-top: 0;
+}
+.left-menu-content {
+  border-bottom: #777 1px solid;
+  position: sticky;
+}
+.progress {
+  padding: 20px 0;
+}
 </style>

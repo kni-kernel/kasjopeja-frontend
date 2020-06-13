@@ -23,7 +23,7 @@
 
         <section class="modal-body" id="modalDescription">
           <slot name="body">
-            <mu-form-item prop="subject" label="Przedmiot:">
+            <!-- <mu-form-item prop="subject" label="Przedmiot:">
               <mu-select v-model="form.subject">
                 <mu-option
                   v-for="option in subjects"
@@ -48,7 +48,7 @@
             </mu-form-item>
             <mu-form-item prop="grade" label="Uzyskana ocena:">
               <mu-text-field v-model="form.grade" type="text"></mu-text-field>
-            </mu-form-item>
+            </mu-form-item> -->
           </slot>
         </section>
 
@@ -73,9 +73,6 @@
 <script>
 export default {
   name: "DismissalOptionModal",
-  props: {
-    formValues: Object
-  },
   data() {
     return {
       subjects: [
@@ -159,7 +156,7 @@ export default {
 }
 @media only screen and (max-width: 1000px) {
   .button {
-    left:1vw
+    left: 1vw;
   }
 }
 </style>
