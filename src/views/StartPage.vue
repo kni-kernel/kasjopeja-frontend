@@ -13,5 +13,3 @@ export default {
   components: { LandingPageLayout }
 };
 </script>
-
-<style scoped></style>
