@@ -52,11 +52,11 @@
 <script>
 import { mapActions, mapState } from "vuex";
 
-import modal from "./ExternalSubjectModal.vue";
-import dataTable from "./DataTableTemplate.vue";
+import dataTable from "./common/DataTableTemplate.vue";
+import modal from "./modals/ExternalSubjectModal.vue";
 
-import { EventBus } from "../../utils/EventBus";
-import { romanianToInt } from "../../utils/functions";
+import { EventBus } from "@/utils/EventBus";
+import { romanianToInt } from "@/utils/functions";
 
 export default {
   name: "PreviousSemestersForm",

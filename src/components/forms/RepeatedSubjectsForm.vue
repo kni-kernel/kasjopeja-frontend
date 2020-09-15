@@ -32,9 +32,10 @@
 <script>
 import { mapActions, mapState } from "vuex";
 
+import dataTable from "./common/DataTableTemplate.vue";
 // import modal from "./DismissalOptionModal.vue";
-import dataTable from "./DataTableTemplate.vue";
-import { EventBus } from "../../utils/EventBus";
+
+import { EventBus } from "@/utils/EventBus";
 
 export default {
   name: "RepeatedSubjectsForm",

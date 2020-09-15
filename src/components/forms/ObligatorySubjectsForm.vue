@@ -5,14 +5,21 @@
       :columns="columns"
       :deleteButton="false"
       :checkBox="true"
+      :editable="true"
     />
+    <div class="info">
+      Klikając na nazwę przedmiotu możesz ją zmienić (przydatne w przypadku
+      dopisania tematu i promotora pracy dyplomowej)
+    </div>
   </mu-container>
 </template>
 
 <script>
-import dataTable from "./DataTableTemplate.vue";
-import { EventBus } from "../../utils/EventBus";
 import { mapActions, mapState } from "vuex";
+
+import dataTable from "./common/DataTableTemplate.vue";
+
+import { EventBus } from "@/utils/EventBus";
 
 export default {
   name: "ObligatorySubjectsForm",
@@ -28,6 +35,13 @@ export default {
       if (step === 4) {
         this.submitForm();
       }
+    });
+    EventBus.$on("changeSubjectNameModalClosed", data => {
+      const { subjectIndex, subjectName } = data;
+      this.list[subjectIndex] = {
+        ...this.list[subjectIndex],
+        name: subjectName
+      };
     });
   },
   data() {
@@ -73,5 +87,9 @@ export default {
 }
 td {
   text-align: center;
+}
+.info {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 </style>
