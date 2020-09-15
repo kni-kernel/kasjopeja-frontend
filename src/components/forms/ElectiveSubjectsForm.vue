@@ -45,10 +45,12 @@
 </template>
 
 <script>
-import modal from "./ExternalSubjectModal.vue";
-import dataTable from "./DataTableTemplate.vue";
-import { EventBus } from "../../utils/EventBus";
 import { mapActions, mapState } from "vuex";
+
+import dataTable from "./common/DataTableTemplate.vue";
+import modal from "./modals/ExternalSubjectModal.vue";
+
+import { EventBus } from "@/utils/EventBus";
 
 export default {
   name: "ElectiveSubjectsForm",

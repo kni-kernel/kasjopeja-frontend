@@ -1,12 +1,13 @@
 <template>
   <mu-paper>
+    <modal v-show="isModalVisible" @close="closeModal" />
     <mu-data-table
       no-data-text="Brak wybranych przedmiotów"
       :columns="columns"
       :data="list"
     >
       <template slot-scope="scope">
-        <td>{{ scope.row.name }}</td>
+        <td @click="showModal(scope.row)">{{ scope.row.name }}</td>
         <td v-if="columns.find(column => column.name === 'semester')">
           {{ scope.row.semester }}
         </td>
@@ -45,15 +46,51 @@
 </template>
 
 <script>
+import modal from "../modals/ChangeSubjectNameModal.vue";
+
+import { EventBus } from "@/utils/EventBus";
+
 export default {
   name: "SubjectsTable",
+  components: {
+    modal
+  },
   props: {
     list: Array,
     columns: Array,
     deleteButton: Boolean,
-    checkBox: Boolean
+    checkBox: Boolean,
+    editable: {
+      default: false,
+      type: Boolean
+    }
+  },
+  mounted() {
+    EventBus.$on("changeSubjectNameModalClosed", () => {
+      this.closeModal();
+    });
+  },
+  data() {
+    return {
+      isModalVisible: false,
+      isTableVisible: true
+    };
   },
   methods: {
+    showModal(row) {
+      if (this.editable) {
+        this.isModalVisible = true;
+        EventBus.$emit("setDataForChangeSubjectNameModal", {
+          subjectName: row.name,
+          subjectIndex: this.list.indexOf(row)
+        });
+        this.isTableVisible = false;
+      }
+    },
+    closeModal() {
+      this.isModalVisible = false;
+      this.isTableVisible = true;
+    },
     deleteItem(item) {
       const index = this.list.indexOf(item);
       this.list.splice(index, 1);

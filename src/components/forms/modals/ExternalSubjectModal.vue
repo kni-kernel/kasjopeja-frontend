@@ -74,8 +74,8 @@
 </template>
 
 <script>
-import { EventBus } from "../../utils/EventBus";
-import { romanianToInt } from "../../utils/functions";
+import { EventBus } from "@/utils/EventBus";
+import { romanianToInt } from "@/utils/functions";
 
 export default {
   name: "ExternalSubjectModal",

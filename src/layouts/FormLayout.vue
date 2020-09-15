@@ -1,10 +1,10 @@
 <template>
   <mu-container fluid class="form-container">
     <mu-row>
-      <mu-col class="left-menu" span="2">
+      <mu-col class="left-menu" sm="0" md="2">
         <LeftMenu class="nav" :step="step" />
       </mu-col>
-      <mu-col span="10">
+      <mu-col sm="12" md="10">
         <div class="title-container">
           <mu-row>
             <mu-col span="12">
