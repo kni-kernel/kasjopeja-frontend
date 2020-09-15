@@ -38,10 +38,15 @@ export default {
     });
     EventBus.$on("changeSubjectNameModalClosed", data => {
       const { subjectIndex, subjectName } = data;
-      this.list[subjectIndex] = {
-        ...this.list[subjectIndex],
-        name: subjectName
-      };
+      this.list = this.list.map((val, idx) => {
+        if (idx === subjectIndex) {
+          return {
+            ...val,
+            name: subjectName
+          };
+        }
+        return val;
+      });
     });
   },
   data() {
