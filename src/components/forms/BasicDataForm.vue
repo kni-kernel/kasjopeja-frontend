@@ -79,8 +79,8 @@
 <script>
 import { mapActions } from "vuex";
 
-import { EventBus } from "../../utils/EventBus";
-import { romanianToInt } from "../../utils/functions";
+import { EventBus } from "@/utils/EventBus";
+import { romanianToInt } from "@/utils/functions";
 
 export default {
   name: "BasicDataForm",
@@ -146,7 +146,7 @@ export default {
         semester: "",
         email: "",
         beginningYear: "",
-        actualYear: "2019/20"
+        actualYear: process.env.VUE_APP_ACTUAL_ACADEMIC_YEAR
       },
       currentYear: new Date(),
       previousYear: new Date(),
