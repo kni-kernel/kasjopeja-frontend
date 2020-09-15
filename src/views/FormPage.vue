@@ -21,7 +21,7 @@ import ObligatorySubjectsForm from "../components/forms/ObligatorySubjectsForm";
 import PreviousSemestersForm from "../components/forms/PreviousSemestersForm";
 import RepeatedSubjectsForm from "../components/forms/RepeatedSubjectsForm";
 
-import { EventBus } from "../utils/EventBus";
+import { EventBus } from "@/utils/EventBus";
 
 export default {
   name: "FormPage",
