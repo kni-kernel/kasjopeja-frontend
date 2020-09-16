@@ -49,6 +49,9 @@ export default {
       });
     });
   },
+  destroyed() {
+    EventBus.$off("externalSubjectModalClosed");
+  },
   data() {
     return {
       isTableVisible: true,
