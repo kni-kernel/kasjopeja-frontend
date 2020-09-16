@@ -175,7 +175,7 @@ export default {
       ],
       surnameRules: [
         {
-          validate: val => val.length >= 5,
+          validate: val => val.length >= 3,
           message: "Nazwisko musi mieć przynajmniej 3 znaki"
         }
       ],
